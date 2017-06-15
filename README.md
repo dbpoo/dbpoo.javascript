@@ -31,3 +31,36 @@
 - 提供选择不同浏览器内核的支持方法 [You Might Not Need jQuery ](http://youmightnotneedjquery.com/) 
 
 - IE10以上浏览器的jQuery替代文档 [You Don't Need jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery/blob/master/README.zh-CN.md) 
+
+## 垂直居中问题
+- 方法1 position:relative实现
+```css
+body.html{
+    width:100%;
+    height:100%;
+}
+.box{
+    width:300px;
+    height:300px;
+    position: relative;
+    top:50%;
+    margin-top:-150px;
+    margin:0 auto;
+}
+```
+- 方法2 flex实现
+```css
+body.html{
+    width:100%;
+    height:100%;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    width:300px;
+    height:300px;
+}
+```
