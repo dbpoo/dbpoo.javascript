@@ -19,3 +19,7 @@
 - 浏览器显示 HTML
 - 浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
 - 浏览器发送异步请求
+
+## window.onload与$(document).ready() 区别
+- 主要区别 window.onload 必须等到页面所有元素加载完成后执行，$(document).ready() 只需要DOM结构加载完毕后就会执行。
+- 次要区别 window.onload 唯一性，只会执行定义的最后一个，$(document).ready() 可以有多个，并且每个在DOM加载完毕后都会执行。
