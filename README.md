@@ -211,3 +211,4 @@ div{
 [Devices Size](https://material.io/devices/)
 - 淘宝解决方案
 [flexible](https://github.com/amfe/lib-flexible)
+[使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
