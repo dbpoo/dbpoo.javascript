@@ -157,7 +157,7 @@ markyun.Event = {
 - null 表示一个对象是“没有值”的值，也就是值为“空”，null的类型(typeof)是object
 - undefined 表示一个变量声明了没有初始化(赋值)，undefined的类型(typeof)是undefined
 
-## 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果
+## border1px高的线保持一致的效果
 ```html
 <div style="height:1px;overflow:hidden;background:red"></div>
 ```
@@ -194,3 +194,18 @@ body{
     height:300px;
 }
 ```
+
+## mobile web retina 1px边框解决方案
+```css
+div{
+    border-width:1px;
+}
+@media (-webkit-device-pixel-ratio: 2) {
+    div{
+        border-width:0.5px;
+    }
+}
+```
+## 移动浏览器适配问题
+- 淘宝解决方案
+[flexible](https://github.com/amfe/lib-flexible)
