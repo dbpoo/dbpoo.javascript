@@ -154,8 +154,8 @@ markyun.Event = {
 ```
 
 ## null，undefined 的区别
-- null 表示一个对象是“没有值”的值，也就是值为“空”；
-- undefined 表示一个变量声明了没有初始化(赋值)；
+- null 表示一个对象是“没有值”的值，也就是值为“空”，null的类型(typeof)是object
+- undefined 表示一个变量声明了没有初始化(赋值)，undefined的类型(typeof)是undefined
 
 ## 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果
 ```html
