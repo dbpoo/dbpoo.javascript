@@ -1,5 +1,6 @@
 /**
  * 01-判断是否是回文
+ * 知识点：reverse()颠倒数组中元素的顺序
  * @param str
  * @returns {boolean}
  */
@@ -9,6 +10,7 @@ function checkPalindrom(str) {
 
 /**
  * 02-去掉数组中重复的值
+ * 知识点：push()末尾添加一个或者多个元素
  * @param arr
  * @returns {Array}
  */
@@ -71,6 +73,7 @@ function bubbleSort(arr){
 
 /**
  * 05-快速排序
+ * 知识点 concat 用户连接两个或者多个数组
  * @param arr
  * @returns {*}
  */
@@ -94,7 +97,29 @@ function quickSort(arr){
 }
 
 /**
- * 06-不借助临时变量，进行两个整数的交换
+ * 06-选择排序
+ * @param arr
+ * @returns {*}
+ */
+function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+                minIndex = j;                 // 将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+
+/**
+ * 07-不借助临时变量，进行两个整数的交换
  * @param a
  * @param b
  * @returns {Array}
@@ -107,7 +132,8 @@ function numSwap(a,b){
 }
 
 /**
- * 07-实现clone 五种数据类型Object Array Boolean Number String
+ * 08-实现clone 五种数据类型Object Array Boolean Number String
+ * 知识点： instanceof判断一个变量是否是对象的实例 typeof 用以获取一个变量或者表达式的类型
  * @param obj
  * @returns {*}
  */
@@ -129,4 +155,19 @@ function clone(obj) {
     } else {
         return obj;
     }
+}
+
+/**
+ * 09-生成指定长度随机字符串
+ * 知识点：charAt指定位置的字符 Math.round四舍五入去整 Math.floor就近取整（x是正数舍小数，x是负数入小数） Math.ceil就近去整（x是正数入小数，x是负数舍小数）Math.random 0~1之间的随机数
+ * @param n
+ * @returns {string}
+ */
+function randomStr(n) {
+    var str = 'abcdefghyijklmnopqrstuvwxyz0123456789';
+    var temp = '';
+    for(var i=0;i<n;i++){
+        temp += str.charAt(Math.round(Math.random()*str.length));
+    }
+    return temp;
 }

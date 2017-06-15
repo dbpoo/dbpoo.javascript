@@ -4,8 +4,10 @@
 - 统计一个字符串出现最多的字母
 - 冒泡排序
 - 快速排序
+- 选择排序
 - 不借助临时变量，进行两个整数的交换
 - 实现clone 
+- 生成指定长度随机字符串
 
 ## 输入URL到页面加载完成的过程
 - 输入地址
@@ -23,3 +25,8 @@
 ## window.onload与$(document).ready() 区别
 - 主要区别 window.onload 必须等到页面所有元素加载完成后执行，$(document).ready() 只需要DOM结构加载完毕后就会执行。
 - 次要区别 window.onload 唯一性，只会执行定义的最后一个，$(document).ready() 可以有多个，并且每个在DOM加载完毕后都会执行。
+
+## jquery替代教程
+- 提供选择不同浏览器内核的支持方法 [You Might Not Need jQuery ](http://youmightnotneedjquery.com/) 
+
+- IE10以上浏览器的jQuery替代文档 [You Don't Need jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery/blob/master/README.zh-CN.md) 
