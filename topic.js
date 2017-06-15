@@ -7,6 +7,7 @@
 function checkPalindrom(str) {
     return str == str.split('').reverse().join('');
 }
+console.log(checkPalindrom("mamam")); // true
 
 /**
  * 02-去掉数组中重复的值
@@ -25,6 +26,7 @@ function unique(arr) {
     }
     return data;
 }
+console.log(unique([1,2,2,3])); //[1,2,3]
 
 /**
  * 03-统计一个字符串出现最多的字母
@@ -52,6 +54,7 @@ function findMaxDuplicateChar(str){
     }
     return maxChar;
 }
+console.log(findMaxDuplicateChar("abbbc")); //b
 
 /**
  * 04-冒泡排序
@@ -70,6 +73,7 @@ function bubbleSort(arr){
     }
     return arr;
 }
+console.log(bubbleSort([2,1,4,3,5])); // [1,2,3,4,5]
 
 /**
  * 05-快速排序
@@ -95,6 +99,7 @@ function quickSort(arr){
     }
     return [].concat(leftArr,tempArr,rightArr);
 }
+console.log(quickSort([2,1,4,3,5])); // [1,2,3,4,5]
 
 /**
  * 06-选择排序
@@ -117,6 +122,7 @@ function selectionSort(arr) {
     }
     return arr;
 }
+console.log(selectionSort([2,1,4,3,5])); // [1,2,3,4,5]
 
 /**
  * 07-不借助临时变量，进行两个整数的交换
@@ -130,6 +136,7 @@ function numSwap(a,b){
     b = a-b;
     return [a,b];
 }
+console.log(numSwap(1,3)); //[3,1]
 
 /**
  * 08-实现clone 五种数据类型Object Array Boolean Number String
@@ -156,6 +163,10 @@ function clone(obj) {
         return obj;
     }
 }
+var arrA = [1,2,3];
+var arrB = {"aaa":111};
+console.log(clone(arrA)); // [1,2,3]
+console.log(clone(arrB)); // {"aaa":111}
 
 /**
  * 09-生成指定长度随机字符串
@@ -171,3 +182,72 @@ function randomStr(n) {
     }
     return temp;
 }
+console.log(randomStr(4));
+
+/**
+ * 10-闭包 点击页面中的P返回对应第几个
+ */
+// 错误写法因为都返回的是一个数
+function pClick() {
+    var arr = document.getElementsByTagName('p');
+    for (var i=0;i<arr.length;i++) {
+        arr[i].onclick = function(){
+            alert(i);
+        }
+    }
+}
+
+// 解决方法
+function pClick() {
+    var arr = document.getElementsByTagName('p');
+    for (var i=0;i<arr.length;i++) {
+        arr[i].onclick = (function(arg){
+            alert(arg);
+        })(i)
+    }
+}
+
+// ES6解决方法 let
+function pClick() {
+    var arr = document.getElementsByTagName('p');
+    for (let i=0;i<arr.length;i++) {
+        arr[i].onclick = function(){
+            alert(i);
+        }
+    }
+}
+
+
+/**
+ * 继承
+ */
+// 定义一个动物类
+function inheritPrototype(sub,superr){
+    var prototype = Object.create(superr.prototype);//ES5中创建对象副本的方法
+    prototype.constructor = superr; //弥补重写原型失去的默认constructor属性
+    sub.prototype = prototype;
+}
+
+function Animal (name) {
+    // 属性
+    this.name = name || 'Animal';
+    // 实例方法
+    this.sleep = function(){
+        return this.name + '正在睡觉！';
+    }
+}
+// 原型方法
+Animal.prototype.eat = function(food) {
+    return this.name + '正在吃：' + food;
+};
+
+// 继承
+function Cat(name) {
+    Animal.call(this);
+    this.name = name || 'weiwei'
+}
+
+inheritPrototype(Cat,Animal);
+var cat = new Cat();
+console.log(cat.eat('菠菜'));
+
