@@ -1,5 +1,5 @@
 /**
- * 01-判断是否是回文
+ * 判断是否是回文
  * 知识点：reverse()颠倒数组中元素的顺序
  * @param str
  * @returns {boolean}
@@ -10,7 +10,7 @@ function checkPalindrom(str) {
 console.log(checkPalindrom("mamam")); // true
 
 /**
- * 02-去掉数组中重复的值
+ * 去掉数组中重复的值
  * 知识点：push()末尾添加一个或者多个元素
  * @param arr
  * @returns {Array}
@@ -29,7 +29,7 @@ function unique(arr) {
 console.log(unique([1,2,2,3])); //[1,2,3]
 
 /**
- * 03-统计一个字符串出现最多的字母
+ * 统计一个字符串出现最多的字母
  * @param str
  * @returns {String}
  */
@@ -57,7 +57,7 @@ function findMaxDuplicateChar(str){
 console.log(findMaxDuplicateChar("abbbc")); //b
 
 /**
- * 04-冒泡排序
+ * 冒泡排序
  * @param arr
  * @returns {Array}
  */
@@ -76,7 +76,7 @@ function bubbleSort(arr){
 console.log(bubbleSort([2,1,4,3,5])); // [1,2,3,4,5]
 
 /**
- * 05-快速排序
+ * 快速排序
  * 知识点 concat 用户连接两个或者多个数组
  * @param arr
  * @returns {*}
@@ -102,7 +102,7 @@ function quickSort(arr){
 console.log(quickSort([2,1,4,3,5])); // [1,2,3,4,5]
 
 /**
- * 06-选择排序
+ * 选择排序
  * @param arr
  * @returns {*}
  */
@@ -125,7 +125,20 @@ function selectionSort(arr) {
 console.log(selectionSort([2,1,4,3,5])); // [1,2,3,4,5]
 
 /**
- * 07-不借助临时变量，进行两个整数的交换
+ * 随机排序
+ * @param arr
+ * @returns {Array.<T>}
+ */
+function randSort(arr) {
+    var tempArr = arr.sort(function(){
+        return Math.random() - 0.5;
+    });
+    return tempArr;
+}
+console.log(randSort([1,2,3,4,5,6]));
+
+/**
+ * 不借助临时变量，进行两个整数的交换
  * @param a
  * @param b
  * @returns {Array}
@@ -139,7 +152,7 @@ function numSwap(a,b){
 console.log(numSwap(1,3)); //[3,1]
 
 /**
- * 08-实现clone 五种数据类型Object Array Boolean Number String
+ * 实现clone 五种数据类型Object Array Boolean Number String
  * 知识点： instanceof判断一个变量是否是对象的实例 typeof 用以获取一个变量或者表达式的类型
  * @param obj
  * @returns {*}
@@ -169,7 +182,7 @@ console.log(clone(arrA)); // [1,2,3]
 console.log(clone(arrB)); // {"aaa":111}
 
 /**
- * 09-生成指定长度随机字符串
+ * 生成指定长度随机字符串
  * 知识点：charAt指定位置的字符 Math.round四舍五入去整 Math.floor就近取整（x是正数舍小数，x是负数入小数） Math.ceil就近去整（x是正数入小数，x是负数舍小数）Math.random 0~1之间的随机数
  * @param n
  * @returns {string}
@@ -185,7 +198,7 @@ function randomStr(n) {
 console.log(randomStr(4));
 
 /**
- * 10-闭包 点击页面中的P返回对应第几个
+ * 闭包 点击页面中的P返回对应第几个
  */
 // 错误写法因为都返回的是一个数
 function pClick() {

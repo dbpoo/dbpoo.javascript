@@ -52,6 +52,10 @@
 7. 图片预加载，将样式表放在顶部，将脚本放在底部加上时间戳
 8. 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢
 
+## HTML5的离线储存
+- 页面头部像下面一样加入一个manifest的属性
+- 在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。离线的情况下，浏览器就直接使用离线存储的资源
+    
 ## DOM操作
 ```
 createDocumentFragment() //创建一个DOM片段
@@ -66,6 +70,92 @@ insertBefore() //插入
 getElementByID() //ID查找
 getElementsByName() //Name查找
 getElementsByTagName() //标签查找
+```
+
+## 时间监听器
+```javascript
+// event(事件)工具集，来源：github.com/markyun
+markyun.Event = {
+    // 页面加载完成后
+    readyEvent : function(fn) {
+        if (fn==null) {
+            fn=document;
+        }
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = fn;
+        } else {
+            window.onload = function() {
+                oldonload();
+                fn();
+            };
+        }
+    },
+    // 视能力分别使用dom0||dom2||IE方式 来绑定事件
+    // 参数： 操作的元素,事件名称 ,事件处理程序
+    addEvent : function(element, type, handler) {
+        if (element.addEventListener) {
+            //事件类型、需要执行的函数、是否捕捉
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent('on' + type, function() {
+                handler.call(element);
+            });
+        } else {
+            element['on' + type] = handler;
+        }
+    },
+    // 移除事件
+    removeEvent : function(element, type, handler) {
+        if (element.removeEventListener) {
+            element.removeEventListener(type, handler, false);
+        } else if (element.datachEvent) {
+            element.detachEvent('on' + type, handler);
+        } else {
+            element['on' + type] = null;
+        }
+    },
+    // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
+    stopPropagation : function(ev) {
+        if (ev.stopPropagation) {
+            ev.stopPropagation();
+        } else {
+            ev.cancelBubble = true;
+        }
+    },
+    // 取消事件的默认行为
+    preventDefault : function(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+    // 获取事件目标
+    getTarget : function(event) {
+        return event.target || event.srcElement;
+    },
+    // 获取event对象的引用，取到事件的所有信息，确保随时能使用event；
+    getEvent : function(e) {
+        var ev = e || window.event;
+        if (!ev) {
+            var c = this.getEvent.caller;
+            while (c) {
+                ev = c.arguments[0];
+                if (ev && Event == ev.constructor) {
+                    break;
+                }
+                c = c.caller;
+            }
+        }
+        return ev;
+    }
+};
+```
+
+## 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果
+```html
+<div style="height:1px;overflow:hidden;background:red"></div>
 ```
 
 ## 垂直居中问题
