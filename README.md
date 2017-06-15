@@ -157,11 +157,6 @@ markyun.Event = {
 - null 表示一个对象是“没有值”的值，也就是值为“空”，null的类型(typeof)是object
 - undefined 表示一个变量声明了没有初始化(赋值)，undefined的类型(typeof)是undefined
 
-## border1px高的线保持一致的效果
-```html
-<div style="height:1px;overflow:hidden;background:red"></div>
-```
-
 ## 垂直居中问题
 - 方法1 position:relative实现
 ```css
