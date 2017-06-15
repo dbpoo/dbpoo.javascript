@@ -207,5 +207,7 @@ div{
 }
 ```
 ## 移动浏览器适配问题
+- 移动设备尺寸大全
+[Devices Size](https://material.io/devices/)
 - 淘宝解决方案
 [flexible](https://github.com/amfe/lib-flexible)
