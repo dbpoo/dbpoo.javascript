@@ -10,6 +10,11 @@
 - 生成指定长度随机字符串
 - 闭包
 
+## jQuery => ES6
+- 提供选择不同浏览器内核的支持方法 [You Might Not Need jQuery ](http://youmightnotneedjquery.com/) 
+
+- IE10以上浏览器的jQuery替代文档 [You Don't Need jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery/blob/master/README.zh-CN.md) 
+
 ## 输入URL到页面加载完成的过程
 - 输入地址
 - 浏览器查找域名的 IP 地址
@@ -27,10 +32,41 @@
 - 主要区别 window.onload 必须等到页面所有元素加载完成后执行，$(document).ready() 只需要DOM结构加载完毕后就会执行。
 - 次要区别 window.onload 唯一性，只会执行定义的最后一个，$(document).ready() 可以有多个，并且每个在DOM加载完毕后都会执行。
 
-## jquery替代教程
-- 提供选择不同浏览器内核的支持方法 [You Might Not Need jQuery ](http://youmightnotneedjquery.com/) 
+## cookies，sessionStorage 和 localStorage 的区别
+- 存储大小区别
+1. cookie数据大小不能超过4k
+2. sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大
 
-- IE10以上浏览器的jQuery替代文档 [You Don't Need jQuery](https://github.com/oneuijs/You-Dont-Need-jQuery/blob/master/README.zh-CN.md) 
+- 有效时间区别
+1. localStorage 存储持久数据，浏览器关闭后数据不丢失除非主动删除数据
+2. sessionStorage 数据在当前浏览器窗口关闭后自动删除
+3. cookie 设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
+
+## 哪些前端性能优化的方法
+1. 减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器
+2. 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数
+3. 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能
+4. 当需要设置的样式很多时设置className而不是直接操作style
+5. 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作
+6. 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)
+7. 图片预加载，将样式表放在顶部，将脚本放在底部加上时间戳
+8. 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢
+
+## DOM操作
+```
+createDocumentFragment() //创建一个DOM片段
+createElement() //创建一个元素
+createTextNode() //创建一个文本节点
+
+appendChild() //添加
+removeChild() //删除
+replaceChild() //替换
+insertBefore() //插入
+
+getElementByID() //ID查找
+getElementsByName() //Name查找
+getElementsByTagName() //标签查找
+```
 
 ## 垂直居中问题
 - 方法1 position:relative实现
