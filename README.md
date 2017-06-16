@@ -79,6 +79,9 @@
 ^[\u4e00-\u9fa5_a-zA-Z0-9]+$
 ```
 
+## 常用js
+#### [function.js](https://github.com/dbpoo/dbpoo.javascript/blob/master/function.js)
+
 ## 事件工具集
 #### [event.js](https://github.com/dbpoo/dbpoo.javascript/blob/master/event.js)
 
