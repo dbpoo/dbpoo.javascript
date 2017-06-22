@@ -1,4 +1,23 @@
 /**
+ * 延迟执行函数 截流函数
+ * @param  {[type]} func  [description]
+ * @param  {[type]} delay [description]
+ * @return {[type]}       [description]
+ */
+function debounce(func, delay) {
+    let timer;
+
+    return function (...args){
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            func.apply(this, args);
+        }, delay)
+    }
+}
+
+/**
  * 转义html标签
  * @param text
  * @returns {string|XML}
