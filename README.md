@@ -14,9 +14,9 @@
 
 ## 跨域解决方案 JSONP & CORS
 - [跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)
-- 区别
-CORS与JSONP的使用目的相同，但是比JSONP更强大
-JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。
+- CORS与JSONP的使用目的相同，但是比JSONP更强大
+- JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据
+- CORS 支持 IE10>，所以移动webapp可以使用这种方式，PC页面还是建议JSONP
 
 ## 正则表达式
 #### [regexp.js](https://github.com/dbpoo/dbpoo.javascript/blob/master/regexp.js)
